@@ -1,6 +1,6 @@
 import { fetchers } from "@/api/fetchers";
 import { Activity } from "@/types/activity";
-import { Card, CardContent, CardHeader, Typography } from "@mui/material";
+import { Card, Grid, Row, Text } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
 import { ActivityPart } from "./ActivityPart";
 
@@ -11,28 +11,26 @@ type Props = {
 export const ActivityCard = ({activity}: Props) => {
 
   return (
-    <div>
-      <Card variant="outlined">
-        <CardHeader
-            title={activity.name}
-            subheader={activity.subject?.name}
-        />
-        <CardContent>
-            <>
-                <Typography variant="body2" color="text.secondary">
-                    { activity.title}
-                </Typography>
-                {
-                    activity.content.parts.map((p, index) => (
-                        <ActivityPart part={p} key={index} />
-                    ))
-                }
-            </>
-        </CardContent>
+    <>
+      <Card isPressable>
+        <Card.Body css={{ p: 0 }}>
+          <Card.Image
+            src={ "https://hoseco.com.au/wp-content/uploads/2018/03/Light-Blue-Box.jpg" }
+            objectFit="cover"
+            width="100%"
+            height={140}
+            alt={activity.name}
+          />
+        </Card.Body>
+        <Card.Footer css={{ justifyItems: 'flex-start' }}>
+          <Row wrap="wrap" justify="space-between" align="center">
+            <Text b>{ activity.name }</Text>
+            <Text css={{ color: '$accents7', fontWeight: '$semibold', fontSize: '$sm' }}>
+              { activity.subject?.name }
+            </Text>
+          </Row>
+        </Card.Footer>
       </Card>
-      {/* <pre>
-        { JSON.stringify(activity.content, null, 2) }
-      </pre> */}
-    </div>
+    </>
   );
 };
