@@ -4,12 +4,12 @@ import { Grid } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
 import { SubjectCard } from "./SubjectCard";
 
-export const SubjectContainer = () => {
-  const [subjects, setSubjects] = useState([] as Subject[]);
+interface Props {
+  subjects: Subject[];
+}
 
-  useEffect(() => {
-    fetchers.subjectFetcher.getAll().then(setSubjects);
-  }, []);
+export const SubjectContainer = ({ subjects }: Props) => {
+
 
   return (
     <Grid.Container gap={2}>

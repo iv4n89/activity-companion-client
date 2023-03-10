@@ -4,12 +4,11 @@ import { Grid } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
 import { ActivityCard } from "./ActivityCard";
 
-export const ActivityCardsContainer = () => {
-  const [activities, setActivities] = useState([] as Activity[]);
+interface Props {
+  activities: Activity[];
+}
 
-  useEffect(() => {
-    fetchers.activityFetcher.getAll().then(setActivities);
-  }, []);
+export const ActivityCardsContainer = ({ activities }: Props) => {
 
   return (
     <Grid.Container gap={2} justify="flex-start">
