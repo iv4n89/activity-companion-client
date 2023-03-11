@@ -6,6 +6,7 @@ export interface Activity {
     id: number;
     name: string;
     title: string;
+    image?: string;
     content: ActivityContent;
     type?: ActivityType;
     subject?: Subject;

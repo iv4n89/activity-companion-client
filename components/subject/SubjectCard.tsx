@@ -9,19 +9,18 @@ interface Props {
 
 export const SubjectCard = ({ subject }: Props) => {
   return (
-    <Card isPressable isHoverable>
+    <Card isPressable isHoverable css={{ width: 400 }}>
         <Card.Body css={{ p: 0 }}>
             <Card.Image
                 src={ getSubjectImage(subject)! }
                 objectFit='cover'
-                width='100%'
+                width={ 400 }
                 height={ 300 }
                 alt={ subject.name }
-                css={{ minWidth: '300px' }}
             />
-            <Card.Footer css={{ justifyItems: 'flex-start' }}>
+            <Card.Footer css={{ justifyItems: 'flex-start', bgBlur: '#ffffff66', position: 'absolute', bottom: 0, height: '70px' }} isBlurred>
                 <Row wrap='wrap' justify='center'>
-                    <Text b css={{ textAlign: 'center', textTransform: 'capitalize' }}>
+                    <Text b css={{ textAlign: 'center', textTransform: 'capitalize', textShadow: '1px -1px 1px black, -1px 1px 1px black, 1px 1px 1px black, -1px -1px 1px black' }} size='x-large' color='white'>
                         { subject.name }
                     </Text>
                 </Row>

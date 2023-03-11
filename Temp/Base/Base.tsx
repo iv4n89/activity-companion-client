@@ -33,7 +33,7 @@ export const Base = ({ children }: Props) => {
         display: 'flex'
       }}>
         {getLeftBar()}
-        <Container css={{ margin: "2vh 2vw 2vh 250px" }}>{children}</Container>
+        <Container css={{ margin: "2vh 15% 2vh 250px" }}>{children}</Container>
       </div>
     </>
   );

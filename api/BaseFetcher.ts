@@ -5,7 +5,7 @@ export class BaseFetcher<T> {
 
     public async create(object: T) {
         const response = await api.post(this.baseUrl, object);
-        return response.data.result;
+        return response.data;
     }
 
     public async getAll() {
@@ -20,11 +20,11 @@ export class BaseFetcher<T> {
 
     public async updateOne(id: number, object: Partial<T>) {
         const response = await api.put(`${ this.baseUrl }/${ id }`, object);
-        return response.data.result;
+        return response.data;
     }
 
     public async deleteOne(id: number) {
         const response = await api.delete(`${ this.baseUrl }/${ id }`);
-        return response.data.result;
+        return response.data;
     }
 }
