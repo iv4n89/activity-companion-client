@@ -21,7 +21,7 @@ export const Base = ({ children }: Props) => {
   const { pathname } = useRouter();
 
   const getLeftBar = () => {
-    const barType = pathname.substring(1);
+    const barType = pathname.substring(1).split('/')[0];
 
     return bars[barType as LeftBarType];
   };
